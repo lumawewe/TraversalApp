@@ -23,4 +23,9 @@
     <ProjectReference Include="..\Traversal.Repository\Traversal.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Concrete\" />
+    <Folder Include="FluentValidation\" />
+  </ItemGroup>
+
 </Project>

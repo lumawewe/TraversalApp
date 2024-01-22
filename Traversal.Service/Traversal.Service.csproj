@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\" />
     <Folder Include="FluentValidation\" />
   </ItemGroup>
 

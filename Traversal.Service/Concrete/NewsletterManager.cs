@@ -13,7 +13,7 @@ namespace Traversal.Service.Concrete
     {
         private readonly INewsletterRepository _newsletterRepository;
 
-        public NewsletterManager(INewsletterRepository newsletterRepository) { _newsletterRepository = newsletterRepository }
+        public NewsletterManager(INewsletterRepository newsletterRepository) { _newsletterRepository = newsletterRepository; }
 
         public void TAdd(Newsletter t)
         {

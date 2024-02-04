@@ -5,19 +5,11 @@
 
 <!doctype html>
 <html lang="zxx">
-
 @await Html.PartialAsync("~/Views/UILayoutPartial/_HeadPartial.cshtml");
-
 <body>
-
     @await Html.PartialAsync("~/Views/UILayoutPartial/_HeaderPartial.cshtml");
-
     @RenderBody()
-    
     @await Html.PartialAsync("~/Views/UILayoutPartial/_FooterPartial.cshtml");
-
     @await Html.PartialAsync("~/Views/UILayoutPartial/_ScriptPartial.cshtml");
-
 </body>
-
 </html>

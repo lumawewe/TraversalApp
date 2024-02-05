@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Traversal.Core.Concrete;
+﻿using Traversal.Core.Concrete;
 using Traversal.Repository.Abstract;
 using Traversal.Service.Abstract;
 
@@ -13,7 +8,10 @@ namespace Traversal.Service.Concrete
     {
         private readonly IDestinationRepository _destinationRepository;
     
-        public DestinationManager(IDestinationRepository destinationRepository) { _destinationRepository = destinationRepository; }
+        public DestinationManager(IDestinationRepository destinationRepository)
+        { 
+            _destinationRepository = destinationRepository; 
+        }
 
         public void TAdd(Destination t)
         {

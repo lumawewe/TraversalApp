@@ -1,9 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Traversal.Repository.EntityFramework;
+using Traversal.Service.Concrete;
 
 namespace Traversal.WEB.ViewComponents.Default
 {
     public class _GridsPartial : ViewComponent
     {
-        public IViewComponentResult Invoke() { return View(); }
+        DestinationManager destinationManager = new DestinationManager(new EfDestinationRepository());
+
+        public IViewComponentResult Invoke()
+        {
+            var values = destinationManager.TGetList();
+            return View(values); 
+        }
+            
     }
 }

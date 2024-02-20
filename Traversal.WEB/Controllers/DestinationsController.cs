@@ -15,16 +15,14 @@ namespace Traversal.WEB.Controllers
             return View(values);
         }
 
+        //destination rotaların id göre seçtiğimizde onu getiricek.
         [HttpGet]
         public IActionResult DestinationDetails(int id) 
         { 
-            return View();
+            var values = destinationManager.TGetByID(id);
+            return View(values);
         }
 
-        [HttpPost]
-        public IActionResult DestinationDetails(Destination d)
-        {
-            return View();  
-        }
+        
     }
 }

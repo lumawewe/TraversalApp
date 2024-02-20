@@ -23,9 +23,10 @@ namespace Traversal.Service.Concrete
             _destinationRepository.Delete(t);
         }
 
+        //destination rotaların detayını getirmek id göre için.
         public Destination TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _destinationRepository.GetById(id);
         }
 
         public List<Destination> TGetList()

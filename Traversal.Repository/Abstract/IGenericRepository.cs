@@ -16,7 +16,7 @@ namespace Traversal.Repository.Abstract
         List<T> GetList();
         List<T> GetListByFilter(Expression<Func<T, bool>> filter);
 
-        T GetById(int id);
+        T GetById(int id); //destination rotaların detayı için eklendi.
 
     }
 }

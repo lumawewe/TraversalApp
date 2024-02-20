@@ -17,5 +17,17 @@ namespace Traversal.Core.Concrete
         public int Capacity { get; set; }
         public bool Status { get; set; }
 
+        //destination detayları için eklemeler yapıyorum
+
+        public string CoverImage { get; set; }
+        public string Details1 { get; set; }
+        public string Details2 { get; set; }
+        public string Image2 { get; set; }
+
+        //yorumları alacağı için Comment ile bağlantısını yapalım
+        public List<Comment> Comments { get; set; }
+
+
+
     }
 }

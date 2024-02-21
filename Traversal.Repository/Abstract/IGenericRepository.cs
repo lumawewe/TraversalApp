@@ -14,9 +14,12 @@ namespace Traversal.Repository.Abstract
         void Delete(T t);
 
         List<T> GetList();
-        List<T> GetListByFilter(Expression<Func<T, bool>> filter);
 
-        T GetById(int id); //destination rotaların detayı için eklendi.
+        List<T> GetListByFilter(Expression<Func<T, bool>> filter); 
+        //hangi rotasyona yorum yapıldıysa yorumu o rotasyona taşıyacak metod
+
+        T GetById(int id); 
+        //destination rotaların detayı için eklendi.
 
     }
 }

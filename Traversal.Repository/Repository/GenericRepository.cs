@@ -38,7 +38,8 @@ namespace Traversal.Repository.Repository
 
         public List<T> GetListByFilter(System.Linq.Expressions.Expression<Func<T, bool>> filter)
         {
-            throw new NotImplementedException();
+            using var c = new Context();
+            return c.Set<T>().Where(filter).ToList();
         }
 
         public void Update(T t)

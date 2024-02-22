@@ -20,7 +20,7 @@ namespace Traversal.Service.Concrete
 
         public void TAdd(Comment t)
         {
-            throw new NotImplementedException();
+            _commentRepository.Add(t);
         }
 
         public void TDelete(Comment t)

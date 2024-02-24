@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Traversal.Repository.EntityFramework;
 using Traversal.Service.Concrete;
-using Traversal.WEB.ViewComponents.AddComment;
 
 namespace Traversal.WEB.ViewComponents.Comment
 {

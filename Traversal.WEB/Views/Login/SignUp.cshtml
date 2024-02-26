@@ -19,41 +19,47 @@
     <div class="wrapper">
         <div class="inner">
             <img src="~/colorlib-regform-26/images/image-1.png" alt="" class="image-1">
-            <form action="">
+            <form method="post">
                 <h3>Yeni Hesap Oluşturun</h3>
                 <div class="form-holder">
                     <span class="lnr lnr-user"></span>
-                    <input type="text" class="form-control" placeholder="Adınız">
+                    <input type="text" class="form-control" placeholder="Adınız" name="Name">
                 </div>
                 <div class="form-holder">
                     <span class="lnr lnr-user"></span>
-                    <input type="text" class="form-control" placeholder="Soyadınız">
+                    <input type="text" class="form-control" placeholder="Soyadınız" name="Surname">
                 </div>
                 <div class="form-holder">
                     <span class="lnr lnr-phone-handset"></span>
-                    <input type="text" class="form-control" placeholder="Telefon Numarası">
+                    <input type="text" class="form-control" placeholder="Telefon Numarası" name="Email">
                 </div>
                 <div class="form-holder">
                     <span class="lnr lnr-envelope"></span>
-                    <input type="text" class="form-control" placeholder="Mail Adresiniz">
+                    <input type="text" class="form-control" placeholder="Mail Adresiniz" name="Username">
+                </div>
+                <div class="form-holder">
+                    <span class="lnr lnr-user"></span>
+                    <input type="text" class="form-control" placeholder="Cinsiyetiniz" name="Gender">
+                </div>
+                <div class="form-holder">
+                    <span class="lnr lnr-picture"></span>
+                    <input type="text" class="form-control" placeholder="Resminiz" name="ImageUrl">
                 </div>
                 <div class="form-holder">
                     <span class="lnr lnr-lock"></span>
-                    <input type="password" class="form-control" placeholder="Şifreniz">
+                    <input type="password" class="form-control" placeholder="Şifreniz" name="Password">
                 </div>
                 <div class="form-holder">
                     <span class="lnr lnr-lock"></span>
-                    <input type="password" class="form-control" placeholder="Şifre tekrar">
+                    <input type="password" class="form-control" placeholder="Şifre tekrar" name="ConfirmPassword">
                 </div>
                 <button>
                     <span>Kayıt Ol</span>
                 </button>
-                <a class="txt2" href="/Login/SignIn/">
-                    <span>Giriş Yap</span>
             </form>
+
             <img src="~/colorlib-regform-26/images/image-2.png" alt="" class="image-2">
         </div>
-
     </div>
     <script src="~/colorlib-regform-26/js/jquery-3.3.1.min.js"></script>
     <script src="~/colorlib-regform-26/js/main.js"></script>

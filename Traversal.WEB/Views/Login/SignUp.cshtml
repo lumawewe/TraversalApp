@@ -74,6 +74,16 @@
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="form-input">
+                            <label>Cinsiyetiniz</label>
+                            <input type="text" asp-for="Gender" />
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+                        <div class="form-input">
+                            <label>Resminiz</label>
+                            <input type="<img src="#" asp-for="ImageUrl"/>
+                            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                        </div>
+                        <div class="form-input">
                             <label>Şifreniz</label>
                             <input type="password" asp-for="Password" />
                             <span asp-validation-for="Password" class="text-danger"></span>
@@ -83,6 +93,8 @@
                             <input type="password" asp-for="ConfirmPassword" />
                             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
+
+
                         <div class="text-danger" asp-validation-summary="ModelOnly">
                         </div>
 

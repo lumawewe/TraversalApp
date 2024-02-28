@@ -2,14 +2,13 @@
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Traversal.Core.Concrete;
 using Traversal.Repository.Concrete;
+using Traversal.WEB.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddDbContext<Context>();
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
 //burası sayesinde projede authorize seviyesi uygulayacak
 builder.Services.AddMvc(config =>
 {
@@ -22,10 +21,6 @@ builder.Services.AddMvc();
 
 var app = builder.Build();
 
-
-
-
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -37,8 +32,6 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();
-
-
 
 app.UseRouting();
 

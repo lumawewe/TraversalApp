@@ -220,14 +220,14 @@ button:hover {
 
 .w3l-login-6 .form-right,
 .w3l-login-6 .form-right.donation-right {
-  width: 70%;
-  float: left;
-  text-align: center;
-  background: url(../images/95882.jpg) no-repeat center;
-  background-size: cover;
-  box-sizing: border-box;
-  min-height: 100%;
-  position: relative;
+    width: 70%;
+    float: left;
+    text-align: center;
+    background: url(../images/banner1.jpg) no-repeat center;
+    background-size: cover;
+    box-sizing: border-box;
+    min-height: 100%;
+    position: relative;
 }
 
 .w3l-login-6 .overlay {
@@ -387,7 +387,7 @@ button:hover {
 }
 
 .w3l-login-6 .form-right.donation-right {
-  background: url(../images/95882.jpg) no-repeat center;
+    background: url(../images/banner1.jpg) no-repeat center;
 }
 
 .w3l-login-6 .donate-form .infor {

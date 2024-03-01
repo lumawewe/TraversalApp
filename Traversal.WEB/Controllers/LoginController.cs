@@ -12,10 +12,12 @@ namespace Traversal.WEB.Controllers
     public class LoginController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
 
-        public LoginController(UserManager<AppUser> userManager)
+        public LoginController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [HttpGet]
@@ -64,5 +66,23 @@ namespace Traversal.WEB.Controllers
             return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SignIn(UserSignInViewModel p)
+        {
+            if(ModelState.IsValid)
+            {
+                //ispersisten : kullanıcıyı hatırlasın olucak lockoutOnFailure : 5 kez yanlış girince kilitleme özelliği
+                var result = await _signInManager.PasswordSignInAsync(p.UserName, p.Password, false, true);
+                if(result.Succeeded)
+                {
+                    return RedirectToAction("Index" , "Default");
+                }
+                else
+                {
+                    return RedirectToAction("SignIn", "Login");
+                }
+            }
+            return View();
+        }
     }
 }

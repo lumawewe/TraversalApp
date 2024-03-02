@@ -1,0 +1,28 @@
+﻿@model UserEditViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserDashboardLayout.cshtml";
+}
+
+<h1>Profile Düzenleme Sayfası</h1>
+<form method="post">
+    @Html.Label("Adınız")
+    <input type="text" asp-for="Name" class="form-control" />
+    @Html.Label("Soyadınız")
+    <input type="text" asp-for="Surname" class="form-control" />
+    @Html.Label("Kullanıcı Adınız")
+    <input type="text" asp-for="UserName" class="form-control" />
+    @Html.Label("Resminiz")
+    <input type="<img src=" #" class="form-control" />
+    @Html.Label("Mail Adresiniz")
+    <input type="email" asp-for="Email" class="form-control" />
+    @Html.Label("Telefon Numaranız")
+    <input type="text" asp-for="PhoneNumber" class="form-control" />
+    @Html.Label("Şifreniz")
+    <input type="password" asp-for="Password" class="form-control" />
+    @Html.Label("Tekrar Şifreniz")
+    <input type="password" asp-for="ConfirmPassword" class="form-control" />
+
+</form>
+

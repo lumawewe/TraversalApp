@@ -19,6 +19,9 @@ namespace Traversal.WEB.Models
         [Required(ErrorMessage = "Lütfen resim seçiniz")]
         public string ImageUrl { get; set; }
 
+        [Required(ErrorMessage = "Lütfen telefon numaranızı giriniz")]
+        public string PhoneNumber { get; set; }
+
         [Required(ErrorMessage = "Lütfen şifrenizi giriniz")]
         public string Password { get; set; }
 

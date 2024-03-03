@@ -33,9 +33,10 @@ namespace Traversal.WEB.Controllers
             {
                 Name = p.Name,
                 Surname = p.Surname,
-                Email = p.Email,
                 UserName = p.UserName,
+                Email = p.Email,
                 Gender = p.Gender,
+                PhoneNumber = p.PhoneNumber,
                 ImageUrl = p.ImageUrl
                 //şifreyi hashlenerek alıyoruz o yüzden yazmadık
             };

@@ -13,5 +13,8 @@ namespace Traversal.Core.Concrete
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Gender { get; set; }
+
+        //reservation.cs ilişki kuralım
+        public List<Destination> Destinations { get; set; }
     }
 }

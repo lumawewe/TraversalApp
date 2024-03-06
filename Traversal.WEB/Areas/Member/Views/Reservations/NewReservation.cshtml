@@ -1,8 +1,39 @@
-﻿
+﻿@model Reservation
+
 @{
     ViewData["Title"] = "NewReservation";
     Layout = "~/Views/Shared/_UserDashboardLayout.cshtml";
 }
 
-<h1>NewReservation</h1>
+<h1>Yeni Reservasyon Sayfası</h1>
+
+<form method="post">
+
+    <div class="form-group">
+        @Html.Label("Lokasyon")
+        @Html.DropDownListFor(x => x.Destination , (List<SelectListItem>)ViewBag.v , new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Sonra kaldırılıcak bir durumdur")
+        <input type="text" asp-for="AppUserId" class="form-control" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Kişi Sayısı")
+        <input type="text" asp-for="PersonCount" class="form-control"/>
+    </div>
+    <div class="form-group">
+        @Html.Label("Tarih")
+        <input type="date" asp-for="ReservationDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Varsa Eklemek İstedikelriniz")
+        <input type="text" asp-for="Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Aktif/Pasif Yap")
+        <input type="text" asp-for="Status" class="form-control" />
+    </div>
+
+    <button class="btn btn-outline-success">Reservasyon Yap</button>
+</form>
 

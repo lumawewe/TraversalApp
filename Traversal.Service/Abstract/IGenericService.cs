@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,5 +16,7 @@ namespace Traversal.Service.Abstract
         List<T> TGetList();
 
         T TGetByID (int id);
+
+        //List<T> GetByFilter(Expression<Func<T, bool>> filter);
     }
 }

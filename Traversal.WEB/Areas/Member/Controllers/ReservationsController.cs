@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Azure.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -15,12 +16,19 @@ namespace Traversal.WEB.Areas.Member.Controllers
         DestinationManager destinationManager = new DestinationManager(new EfDestinationRepository());
         ReservationManager reservationManager = new ReservationManager(new EfReservationRepository());
 
+        private readonly UserManager<AppUser> _userManager;
+
+        public ReservationsController(UserManager<AppUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
         [HttpGet]
         public IActionResult NewReservation()
         {
             List<SelectListItem> values = (from x in destinationManager.TGetList()
-                                           select new SelectListItem 
-                                           { Text = x.City , Value = x.Id.ToString()}).ToList();
+                                           select new SelectListItem
+                                           { Text = x.City, Value = x.Id.ToString() }).ToList();
             ViewBag.v = values;
             return View();
         }
@@ -42,6 +50,13 @@ namespace Traversal.WEB.Areas.Member.Controllers
         {
             return View();
 
+        }
+
+        public async Task<IActionResult> MyApprovalReservation()
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            var valuesList = reservationManager.GetListApprovalReservation(values.Id);
+            return View(valuesList);
         }
 
     }

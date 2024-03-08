@@ -27,6 +27,8 @@ namespace Traversal.Core.Concrete
         //yorumları alacağı için Comment ile bağlantısını yapalım
         public List<Comment> Comments { get; set; }
 
+        public List<Reservation> Reservations { get; set; }
+
 
 
     }

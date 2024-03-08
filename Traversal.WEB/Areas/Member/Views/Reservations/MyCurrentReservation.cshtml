@@ -1,8 +1,40 @@
-﻿
+﻿@model List<Reservation>
 @{
     ViewData["Title"] = "MyCurrentReservation";
     Layout = "~/Views/Shared/_UserDashboardLayout.cshtml";
 }
 
-<h1>Aktif Rezervasyonlarım</h1>
+
+@if (!Model.Any())
+{
+    <div class=" container mt-5 alert alert-info" role="alert">
+        <h4> <b>  Aktif Olan Rezervasyonunuz Bulunmamaktadır...</b></h4>
+    </div>
+}
+
+else
+{
+    <h1>Aktif Rezervasyonlar</h1>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Lokasyon</th>
+            <th>Kişi Sayısı</th>
+            <th>Rezervasyon Tarihi</th>
+            <th>Durum</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Destination.City</td>
+                <td>@item.PersonCount</td>
+                <td>@item.ReservationDate</td>
+                <td>@item.Status</td>
+            </tr>
+        }
+    </table>
+}
 

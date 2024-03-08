@@ -14,7 +14,7 @@ namespace Traversal.WEB.Areas.Member.Controllers
     public class ReservationsController : Controller
     {
         DestinationManager destinationManager = new DestinationManager(new EfDestinationRepository());
-        ReservationManager reservationManager = new ReservationManager(new EfReservationRepository());
+        ReservationManager reservationManager = new ReservationManager(new EfReservationRepository(new Repository.Concrete.Context()));
 
         private readonly UserManager<AppUser> _userManager;
 
@@ -40,22 +40,26 @@ namespace Traversal.WEB.Areas.Member.Controllers
             return RedirectToAction("MyCurrentReservation");
         }
 
-        public IActionResult MyCurrentReservation()
+        public async Task<IActionResult> MyCurrentReservation()
         {
-            return View();
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            var valuesList = reservationManager.GetListWithReservationByAccepted(values.Id);
+            return View(valuesList);
 
         }
 
-        public IActionResult MyOldReservation()
+        public async Task<IActionResult> MyOldReservation()
         {
-            return View();
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            var valuesList = reservationManager.GetListWithReservationByPrevious(values.Id);
+            return View(valuesList);
 
         }
 
         public async Task<IActionResult> MyApprovalReservation()
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
-            var valuesList = reservationManager.GetListApprovalReservation(values.Id);
+            var valuesList = reservationManager.GetListWithReservationByWaitApproval(values.Id);
             return View(valuesList);
         }
 

@@ -18,7 +18,7 @@ namespace Traversal.WEB.ViewComponents.MemberDashboard
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             
-            ViewBag.memberName = values.UserName + " " + values.Surname;
+            ViewBag.memberName = values.Name + " " + values.Surname;
             ViewBag.memberPhone = values.PhoneNumber;
             ViewBag.memberEmail = values.Email;
 

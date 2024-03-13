@@ -30,7 +30,8 @@ namespace Traversal.Service.Concrete
 
         public Guide TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _guideRepository.GetById(id);
+
         }
 
         public List<Guide> TGetList()

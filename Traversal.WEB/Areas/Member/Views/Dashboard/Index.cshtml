@@ -147,68 +147,60 @@
             </div>
         </div>
         
-        @*Profile Information*@
+        @*Profil Bilgileri*@
         @await Component.InvokeAsync("_ProfileInformation")
         
-        @*Conservation*@
-        <div class="col-12 col-xl-4">
-            <div class="card h-100">
+        @*Tur rehberleri*@
+        @await Component.InvokeAsync("_GuideList")
+
+        @*Geçmiş Rezervasyonlar*@
+        <div class="col-12 mt-4">
+            <div class="card mb-4">
                 <div class="card-header pb-0 p-3">
-                    <h6 class="mb-0">Conversations</h6>
+                    <h6 class="mb-1">Geçmiş Rotalar</h6>
+                    <p class="text-sm">burada gittiğiniz rotaları görebileceksiniz</p>
                 </div>
                 <div class="card-body p-3">
-                    <ul class="list-group">
-                        <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                            <div class="avatar me-3">
-                                <img src="~/soft-ui-dashboard/assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                            <div class="card card-blog card-plain">
+                                <div class="position-relative">
+                                    <a class="d-block shadow-xl border-radius-xl">
+                                        <img src="/soft-ui-dashboard/assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                                    </a>
+                                </div>
+                                <div class="card-body px-1 pb-0">
+                                    <p class="text-gradient text-dark mb-2 text-sm">Türkiye</p>
+                                    <a href="javascript:;">
+                                        <h5>
+                                            İstanbul
+                                        </h5>
+                                    </a>
+                                    <p class="mb-4 text-sm">
+                                        Dünyadaki kadim şehir İstanbulu seyahat edin ve huzur bulun.
+                                    </p>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">Turun Detayları</button>
+                                        <div class="avatar-group mt-2">
+                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
+                                                <img alt="Image placeholder" src="/soft-ui-dashboard/assets/img/team-1.jpg">
+                                            </a>
+                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
+                                                <img alt="Image placeholder" src="/soft-ui-dashboard/assets/img/team-2.jpg">
+                                            </a>
+                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
+                                                <img alt="Image placeholder" src="/soft-ui-dashboard/assets/img/team-3.jpg">
+                                            </a>
+                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
+                                                <img alt="Image placeholder" src="/soft-ui-dashboard/assets/img/team-4.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex align-items-start flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Sophie B.</h6>
-                                <p class="mb-0 text-xs">Hi! I need more information..</p>
-                            </div>
-                            <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                        </li>
-                        <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                            <div class="avatar me-3">
-                                <img src="~/soft-ui-dashboard/assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
-                            </div>
-                            <div class="d-flex align-items-start flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Anne Marie</h6>
-                                <p class="mb-0 text-xs">Awesome work, can you..</p>
-                            </div>
-                            <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                        </li>
-                        <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                            <div class="avatar me-3">
-                                <img src="~/soft-ui-dashboard/assets/img/ivana-square.jpg" alt="kal" class="border-radius-lg shadow">
-                            </div>
-                            <div class="d-flex align-items-start flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Ivanna</h6>
-                                <p class="mb-0 text-xs">About files I can..</p>
-                            </div>
-                            <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                        </li>
-                        <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                            <div class="avatar me-3">
-                                <img src="~/soft-ui-dashboard/assets/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
-                            </div>
-                            <div class="d-flex align-items-start flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Peterson</h6>
-                                <p class="mb-0 text-xs">Have a great afternoon..</p>
-                            </div>
-                            <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                        </li>
-                        <li class="list-group-item border-0 d-flex align-items-center px-0">
-                            <div class="avatar me-3">
-                                <img src="~/soft-ui-dashboard/assets/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
-                            </div>
-                            <div class="d-flex align-items-start flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Nick Daniel</h6>
-                                <p class="mb-0 text-xs">Hi! I need more information..</p>
-                            </div>
-                            <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+

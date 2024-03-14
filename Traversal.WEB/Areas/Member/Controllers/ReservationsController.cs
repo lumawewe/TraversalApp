@@ -10,7 +10,6 @@ using Traversal.Service.Concrete;
 namespace Traversal.WEB.Areas.Member.Controllers
 {
     [Area("Member")]
-    [AllowAnonymous]
     public class ReservationsController : Controller
     {
         DestinationManager destinationManager = new DestinationManager(new EfDestinationRepository());

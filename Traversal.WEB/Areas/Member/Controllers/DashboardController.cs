@@ -6,7 +6,6 @@ using Traversal.Core.Concrete;
 namespace Traversal.WEB.Areas.Member.Controllers
 {
     [Area("Member")]
-    [AllowAnonymous]
     public class DashboardController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

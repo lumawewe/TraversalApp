@@ -7,8 +7,7 @@ using Traversal.WEB.Models;
 namespace Traversal.WEB.Areas.Member.Controllers
 {
     [Area("Member")]
-    [Route("Member/[controller][action]")]
-    [AllowAnonymous]
+    [Route("Member/[controller]/[action]")]
     public class ProfileController : Controller
     {
         private readonly UserManager<AppUser> _userManager;

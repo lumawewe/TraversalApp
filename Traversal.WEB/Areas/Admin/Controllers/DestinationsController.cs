@@ -33,20 +33,25 @@ namespace Traversal.WEB.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult UpdateDestination()
+        public IActionResult UpdateDestination(int id)
         {
-            return View();
+            var values = destinationManager.TGetByID(id);
+            return View(values);
         }
 
         [HttpPost]
         public IActionResult UpdateDestination(Destination d)
         {
-            return View();
+            destinationManager.TUpdate(d);
+            return RedirectToAction("Index");
         }
 
-        public IActionResult DeleteDestination()
+        public IActionResult DeleteDestination(int id)
         {
-            return View();  
+            var values = destinationManager.TGetByID(id);
+            destinationManager.TDelete(values);
+            return RedirectToAction("Index");
+            
         }
 
     }

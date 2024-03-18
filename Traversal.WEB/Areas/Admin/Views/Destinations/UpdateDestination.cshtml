@@ -1,15 +1,16 @@
 ﻿
 @{
-    ViewData["Title"] = "AddDestination";
+    ViewData["Title"] = "UpdateDestination";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 @model Destination
 
 
-<h1>Yeni Rota Oluşturma Sayfası</h1>
+<h1>Rota Güncelleme Sayfası</h1>
 
 <form method="post">
+    <input type="hidden" asp-for="Id" />
     <div class="form-group">
         @Html.Label("Şehir")
         <input type="text" asp-for="City" class="form-control" />
@@ -60,5 +61,5 @@
         <textarea cols="30" rows="5" class="form-control" asp-for="Description"></textarea>
     </div>
     <br />
-    <button class="btn btn-outline-primary">Oluştur</button>
+    <button class="btn btn-outline-primary">Güncelle</button>
 </form>

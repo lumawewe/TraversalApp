@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Traversal.Core.Concrete;
+using Traversal.Repository.Abstract;
 using Traversal.Repository.Concrete;
+using Traversal.Repository.EntityFramework;
+using Traversal.Service.Abstract;
+using Traversal.Service.Concrete;
 using Traversal.WEB.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
+
+builder.Services.AddScoped<ICommentService, CommentManager>();
+builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
+
 //burası sayesinde projede authorize seviyesi uygulayacak
 builder.Services.AddMvc(config =>
 {

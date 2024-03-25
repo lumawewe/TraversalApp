@@ -9,5 +9,6 @@ namespace Traversal.Repository.Abstract
 {
     public interface ICommentRepository : IGenericRepository<Comment>
     {
+        public List<Comment> GetListCommentWithDestination();
     }
 }

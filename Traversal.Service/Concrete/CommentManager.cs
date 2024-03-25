@@ -25,27 +25,32 @@ namespace Traversal.Service.Concrete
 
         public void TDelete(Comment t)
         {
-            throw new NotImplementedException();
+            _commentRepository.Delete(t);
         }
 
         public Comment TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _commentRepository.GetById(id);
         }
 
         public List<Comment> TGetList()
         {
-            throw new NotImplementedException();
+            return _commentRepository.GetList();
         }
 
         public void TUpdate(Comment t)
         {
-            throw new NotImplementedException();
+            _commentRepository.Update(t);
         }
 
         public List<Comment> TGetDestinationById(int id)
         {
             return _commentRepository.GetListByFilter(x => x.DestinationId == id);
+        }
+
+        public List<Comment> TGetListCommnetWithDestination()
+        {
+            return _commentRepository.GetListCommentWithDestination();
         }
     }
 }

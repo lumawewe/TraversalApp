@@ -11,11 +11,16 @@ namespace Traversal.WEB.Areas.Admin.Controllers
     [AllowAnonymous]
     public class DestinationsController : Controller
     {
-        DestinationManager destinationManager = new DestinationManager(new EfDestinationRepository());
+        private readonly IDestinationService _destinationService;
+
+        public DestinationsController(IDestinationService destinationService)
+        {
+            _destinationService = destinationService;
+        }
 
         public IActionResult Index()
         {
-            var values = destinationManager.TGetList();
+            var values = _destinationService.TGetList();
             return View(values);
         }
 
@@ -28,28 +33,28 @@ namespace Traversal.WEB.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddDestination(Destination d)
         {
-            destinationManager.TAdd(d);
+            _destinationService.TAdd(d);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult UpdateDestination(int id)
         {
-            var values = destinationManager.TGetByID(id);
+            var values = _destinationService.TGetByID(id);
             return View(values);
         }
 
         [HttpPost]
         public IActionResult UpdateDestination(Destination d)
         {
-            destinationManager.TUpdate(d);
+            _destinationService.TUpdate(d);
             return RedirectToAction("Index");
         }
 
         public IActionResult DeleteDestination(int id)
         {
-            var values = destinationManager.TGetByID(id);
-            destinationManager.TDelete(values);
+            var values = _destinationService.TGetByID(id);
+            _destinationService.TDelete(values);
             return RedirectToAction("Index");
             
         }

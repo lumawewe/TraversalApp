@@ -17,6 +17,14 @@ builder.Services.AddIdentity<AppUser, AppRole>().AddErrorDescriber<CustomIdentit
 builder.Services.AddScoped<ICommentService, CommentManager>();
 builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
 
+builder.Services.AddScoped<IDestinationService, DestinationManager>();
+builder.Services.AddScoped<IDestinationRepository, EfDestinationRepository>();
+
+builder.Services.AddScoped<IAppUserService, AppUserManager>();
+builder.Services.AddScoped<IAppUserRepository, EfAppUserRepository>();
+
+
+
 //burası sayesinde projede authorize seviyesi uygulayacak
 builder.Services.AddMvc(config =>
 {

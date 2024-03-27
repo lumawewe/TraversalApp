@@ -6,6 +6,7 @@ using Traversal.Repository.Concrete;
 using Traversal.Repository.EntityFramework;
 using Traversal.Service.Abstract;
 using Traversal.Service.Concrete;
+using Traversal.Service.Containers;
 using Traversal.WEB.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,15 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
-
-builder.Services.AddScoped<ICommentService, CommentManager>();
-builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
-
-builder.Services.AddScoped<IDestinationService, DestinationManager>();
-builder.Services.AddScoped<IDestinationRepository, EfDestinationRepository>();
-
-builder.Services.AddScoped<IAppUserService, AppUserManager>();
-builder.Services.AddScoped<IAppUserRepository, EfAppUserRepository>();
+builder.Services.ContainerDepedencies();
 
 
 

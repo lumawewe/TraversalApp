@@ -27,6 +27,9 @@ namespace Traversal.Service.Containers
             services.AddScoped<IReservationService, ReservationManager>();
             services.AddScoped<IReservationRepository, EfReservationRepository>();
 
+            services.AddScoped<IGuideService, GuideManager>();
+            services.AddScoped<IGuideRepository, EfGuideRepository>();
+
 
         }
     }

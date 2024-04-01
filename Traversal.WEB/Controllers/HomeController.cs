@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Traversal.WEB.Models;
@@ -17,11 +17,23 @@ namespace Traversal.WEB.Controllers
 
         public IActionResult Index()
         {
+            DateTime d = Convert.ToDateTime(DateTime.Now.ToLongDateString());  
+            _logger.LogInformation("tarih" + d + "index sayfası çağırıldı");
             return View();
         }
 
         public IActionResult Privacy()
         {
+            DateTime d = Convert.ToDateTime(DateTime.Now.ToLongDateString());
+            _logger.LogInformation("tarih" + d + "privacy sayfası çağırıldı");
+            return View();
+        }
+
+        public IActionResult Test()
+        {
+            DateTime d = Convert.ToDateTime(DateTime.Now.ToLongDateString());
+            _logger.LogInformation("tarih" + d + "test sayfası çağırıldı");
+
             return View();
         }
 

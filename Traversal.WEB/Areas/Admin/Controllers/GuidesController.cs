@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Traversal.Core.Concrete;
 using Traversal.Service.Abstract;
-using Traversal.Service.Concrete;
+using Traversal.Service.FluentValidation;
+
 
 namespace Traversal.WEB.Areas.Admin.Controllers
 {
@@ -29,13 +30,24 @@ namespace Traversal.WEB.Areas.Admin.Controllers
             return View();
         }
 
-
         [HttpPost]
         public IActionResult AddGuide(Guide guide)
         {
-            _guideService.TAdd(guide);
-            return RedirectToAction("Index");
-
+            GuideValidator validationRules = new GuideValidator();
+            FluentValidation.Results.ValidationResult result = validationRules.Validate(guide);
+            if (result.IsValid)
+            {
+                _guideService.TAdd(guide);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+                return View();
+            }
         }
 
         [HttpGet]
@@ -57,6 +69,7 @@ namespace Traversal.WEB.Areas.Admin.Controllers
             return RedirectToAction("Index");
 
         }
+
         public IActionResult ChangeToFalse(int id)
         {
             return RedirectToAction("Index");

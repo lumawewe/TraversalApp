@@ -1,15 +1,21 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.Extensions.Logging;
+using Serilog;
 using Traversal.Core.Concrete;
-using Traversal.Repository.Abstract;
 using Traversal.Repository.Concrete;
-using Traversal.Repository.EntityFramework;
-using Traversal.Service.Abstract;
-using Traversal.Service.Concrete;
 using Traversal.Service.Containers;
 using Traversal.WEB.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddLogging(x =>
+{
+    x.ClearProviders();
+    x.SetMinimumLevel(LogLevel.Debug);
+    x.AddDebug();
+    x.AddFile($"{Directory.GetCurrentDirectory()}\\Logs\\Log1.txt", LogLevel.Information);
+}); ;
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Context>();
@@ -26,6 +32,7 @@ builder.Services.AddMvc(config =>
     .Build();
     config.Filters.Add(new AuthorizeFilter(policy));
 });
+
 builder.Services.AddMvc();
 
 var app = builder.Build();
@@ -37,6 +44,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+
 
 app.UseStatusCodePagesWithReExecute("/ErrorPages/Error404", "?code={0}");
 

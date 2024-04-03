@@ -4,10 +4,10 @@ using Traversal.Core.Concrete;
 using Traversal.Service.Abstract;
 using Traversal.Service.FluentValidation;
 
-
 namespace Traversal.WEB.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/Guides")]
     [AllowAnonymous]
     public class GuidesController : Controller
     {
@@ -18,18 +18,22 @@ namespace Traversal.WEB.Areas.Admin.Controllers
             _guideService = guideService;
         }
 
+        [Route("")]
+        [Route("Index")]
         public IActionResult Index()
         {
             var values = _guideService.TGetList();
             return View(values);
         }
 
+        [Route("AddGuide")]
         [HttpGet]
         public IActionResult AddGuide()
         {
             return View();
         }
 
+        [Route("AddGuide")]
         [HttpPost]
         public IActionResult AddGuide(Guide guide)
         {
@@ -50,6 +54,7 @@ namespace Traversal.WEB.Areas.Admin.Controllers
             }
         }
 
+        [Route("EditGuide")]
         [HttpGet]
         public IActionResult EditGuide(int id)
         {
@@ -57,6 +62,7 @@ namespace Traversal.WEB.Areas.Admin.Controllers
             return View(values);
         }
 
+        [Route("EditGuide")]
         [HttpPost]
         public IActionResult EditGuide(Guide guide)
         {
@@ -64,15 +70,19 @@ namespace Traversal.WEB.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [Route("ChangeToTrue/{id}")]
         public IActionResult ChangeToTrue(int id)
         {
-            return RedirectToAction("Index");
+            _guideService.TChangeToTrueByGuide(id);
+            return RedirectToAction("Index", "Guides", new { Area = "Admin"});
 
         }
 
+        [Route("ChangeToFalse/{id}")]
         public IActionResult ChangeToFalse(int id)
         {
-            return RedirectToAction("Index");
+            _guideService.TChangeToFalseByGuide(id);
+            return RedirectToAction("Index", "Guides", new { Area = "Admin" });
 
         }
     }

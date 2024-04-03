@@ -18,6 +18,16 @@ namespace Traversal.Service.Concrete
             _guideRepository.Add(t);
         }
 
+        public void TChangeToFalseByGuide(int id)
+        {
+            _guideRepository.ChangeToFalseByGuide(id);
+        }
+
+        public void TChangeToTrueByGuide(int id)
+        {
+            _guideRepository.ChangeToTrueByGuide(id);
+        }
+
         public void TDelete(Guide t)
         {
             _guideRepository.Delete(t);

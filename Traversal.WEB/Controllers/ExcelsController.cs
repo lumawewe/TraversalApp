@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Traversal.Repository.Concrete;
+using Traversal.Service.Abstract;
 using Traversal.WEB.Models;
 
 namespace Traversal.WEB.Controllers
@@ -10,6 +11,13 @@ namespace Traversal.WEB.Controllers
     [AllowAnonymous]
     public class ExcelsController : Controller
     {
+        private readonly IExcelService _excelService;
+
+        public ExcelsController(IExcelService excelService)
+        {
+            _excelService = excelService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -59,5 +67,12 @@ namespace Traversal.WEB.Controllers
                 }
             }
         }
+
+        public IActionResult StaticExcelReport()
+        {
+            return File(_excelService.ExcelList(DestinationList()), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "YeniExcel.xlsx");
+        }
+
+
     }
 }

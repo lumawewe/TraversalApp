@@ -1,9 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Traversal.Repository.Abstract;
 using Traversal.Repository.EntityFramework;
 using Traversal.Service.Abstract;
@@ -29,6 +24,10 @@ namespace Traversal.Service.Containers
 
             services.AddScoped<IGuideService, GuideManager>();
             services.AddScoped<IGuideRepository, EfGuideRepository>();
+
+            services.AddScoped<IExcelService, ExcelManager>();
+
+            services.AddScoped<IPdfService, PdfManager>();
 
 
         }
